@@ -1,0 +1,23 @@
+:root{
+}
+
+html{
+    font-size: 1vmin;
+}
+
+body{
+  margin: 0;
+  overflow: hidden;
+}
+  
+button:focus{outline: none;}
+button{
+  display: block;
+
+  background-color: white;
+  border-radius: 2px;
+  border: 3px solid black;
+}
+@media (max-width:  768px){
+  button{border-width: 2px;}
+}

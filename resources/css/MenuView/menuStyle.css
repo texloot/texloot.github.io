@@ -1,0 +1,74 @@
+#menuWrapper{
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#menuWrapper header{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40vh;
+    max-height: 75vw;
+    width: 100%;
+}
+#menuWrapper header::before{
+    content: ' ';
+    width: 95%;
+    height: 100%;
+    background: url("../../images/banner.png") no-repeat; 
+    background-position: center;
+    background-size: contain;
+}
+@media (max-width:  75vh){
+    #menuWrapper header::before{
+        width: 90%;
+        background: url("../../images/banner-mobile.png") no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+button.std{
+    height: 8vh;
+    width: 45vh;
+    max-width: 80vw;
+    margin: 5vh auto ;
+
+    font-weight: 900;
+    font-size: 3vh;
+    color: rgb(0, 0, 0);
+
+    background-color: var(--white-grid-color); 
+
+    border: 4px solid black;
+    border-radius: 2;
+
+    box-shadow: inset 0px 0px 5vmin 0.4vmin rgba(0, 0, 0, 0.1);
+
+    transition: background-color linear .25s;
+}
+@media(hover:hover){
+  button.std:hover{
+        background-color: rgb(190, 246, 212);
+    }
+}
+button.std:active{
+    background-color: rgb(190, 246, 212);
+}
+
+/* remove when play online is added */
+#menuWrapper button:nth-child(3){
+    opacity: 0.7;
+}
+#menuWrapper button:nth-child(3):hover{
+    background-color: var(--white-grid-color); 
+}
+#menuWrapper button:nth-child(3):active{
+    background-color: var(--white-grid-color); 
+}

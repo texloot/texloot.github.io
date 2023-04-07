@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Chess</title>
+    <meta name="description" content="another online chess">
+    <meta name="author" content="John H., Stefan K.">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#fffff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#fffff">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fffff">
+
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/color.css">
+
+    <link rel="stylesheet" href="../css/MenuView/menuStyle.css">
+
+    <link rel="stylesheet" href="../css/GameView/spriteStyle.css">
+    <link rel="stylesheet" href="../css/GameView/gameStyle.css">
+    <link rel="stylesheet" href="../css/GameView/gameGridStyle.css">
+    <link rel="stylesheet" href="../css/GameView/gameModals.css">
+    <link rel="stylesheet" href="../css/GameView/hamburgerMenu.css">
+    <link rel="stylesheet" href="../css/slider.css">
+
+
+    <!--google font already downloaded add later -->
+    <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+    <link href="../fonts/Pacifico-Regular.ttf" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="menuWrapper" class="MenuWrapper">
+        <header></header>
+        <button class="std" onclick="playOffline()">play offline</button>
+        <button class="std">play online</button>
+        <button class="std" onclick="openFullscreen()">fullscreen&nbsp;&nbsp;[&nbsp;&nbsp;]</button>
+    </div>
+
+    <section id="createLocalGameView">
+
+        <div class="timeOptionWrapper">
+            <div class="label">time limit:</div>
+            <div class="slidecontainer">
+              <span id="timeLimitText">10 minutes</span>
+              <div class="sliderWrapper">
+                <input type="range" min="1" max="61" value="10" class="slider" id="timeLimitInput">                  
+              </div>
+            </div>
+        </div>
+      
+      <div class="timeOptionWrapper">
+            <div class="label">time bonus per turn:</div>
+            <div class="slidecontainer">
+              <span id="timeBonusText">15 secounds</span>
+              <div class="sliderWrapper">
+                <input type="range" min="0" max="120" value="15" class="slider sliderblackpawn" id="timeBonusInput">
+              </div>
+            </div>
+        </div>
+        
+        <button class="std startBtn" onclick="startLocalGame()">start game</button>
+
+    </section>
+
+    
+
+    <div id="gameWrapper" class="gameWrapper">
+
+        <div id="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="gameinfo">
+            <div class="clocks">
+                <div class="clockKing white"></div>
+                <div id="whiteClock" class="clock white">05:12</div>
+                <div class="divider"></div>
+                <div id="blackClock" class="clock black">04:32</div>
+                <div class="clockKing black"></div>
+            </div>
+        </div>
+
+        <div id="chessWrapper" class="chessWrapper">
+            <div id="chessBoard" class="gridContainer"></div>
+            <div class="cordsX"><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a><a>8</a></div>
+            <div class="cordsY"><a>a</a><a>b</a><a>c</a><a>d</a><a>e</a><a>f</a><a>g</a><a>h</a></div>
+        </div>
+
+        <div class="history">
+            <div id="latestMoveButton" onclick="history.latestMove()">latest move</div>
+            <div class="historyControlWrapper">
+                <button id="historyBackwardBtn" onclick="history.backward()"><</button>
+                <div class="historylist" id="historylist"></div>
+                <button id="historyForwardBtn" onclick="history.forward()">></button>
+            </div>
+        </div>
+
+        <!--OVERLAYS / MODALS-->
+
+        <div id="gamePawnPromotion" class="hide">
+            <button id="queenBtn"><div class="sprite queen"></div></button>
+            <button id="bishopBtn"><div class="sprite bishop"></div></button>
+            <button id="rookBtn"><div class="sprite rook"></div></button>
+            <button id="knightBtn"><div class="sprite knight"></div></button>
+        </div>
+
+        <div id="gameEndModal" data-winner="DRAW" class="hide">
+            <div id="GameEndInfo" data-reason="black resigns">
+                <!-- data-winner -->
+                <span id="WhiteWinnsText">White Winns!</span>
+                <span id="BlackWinnsText">Black Winns!</span>
+                <span id="DrawText">Draw.</span>
+            </div>
+            <button id="mainMenuBtn">main menu</button>
+            <button id="rematchBtn">rematch</button>
+            <button id="analyseBtn" class="xBtn">x</button>
+        </div>
+
+        <div id="BoolModal" class="boolModal hide">
+            <span id="BoolModalQuestion" class="question">Are you sure u want to Resign?</span>
+            <div class="btngroup"> 
+                <button id="BoolModalAccept" class="yesBtn">yes</button>
+                <button id="BoolModalDecline" class="noBtn">no</button>
+            </div>
+            <button id="BoolModalClose" class="xBtn">x</button>
+        </div>
+
+    </div>
+    <script src="../javascript/util.js"></script>
+    <script src="../javascript/modals.js"></script>
+    <script src="../javascript/board.js"></script>
+    <script src="../javascript/game.js"></script>
+    <script src="../javascript/minions.js"></script>
+    <script src="../javascript/debug.js"></script>
+    <script src="../javascript/moves.js"></script>
+    <script src="../javascript/gui.js"></script>
+    <script src="../javascript/history.js"></script>
+    <script src="../javascript/clock.js"></script>
+    <script src="../javascript/createLocalGame.js"></script>
+
+    <!-- View-JS -->
+    <script src="../javascript/view/boardView.js"></script>
+    <script src="../javascript/view/clockView.js"></script>
+    <script src="../javascript/view/historyView.js"></script>
+    <script src="../javascript/view/modalView.js"></script>
+
+    
+
+</body>
+
+body {
+    background-color: darkgrey;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+svg {
+  background-color: white;
+}
+
+#shape {
+  fill:blue;
+}
+#canvas svg{
+  overflow: visible;
+}
+#canvas{
+  overflow: hidden;
+}
+
+</html>

@@ -1,0 +1,19 @@
+.gameWrapper{
+    position: relative;
+
+    display: grid;
+
+    grid-template-rows: 1fr min-content 1fr;
+
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 1vmin;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  
+.chessWrapper, .history, #gameMessage, .gameinfo, .clocks{
+    min-width: 0;
+    min-height: 0;
+  } 

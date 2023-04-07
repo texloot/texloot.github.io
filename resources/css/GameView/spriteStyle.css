@@ -1,0 +1,44 @@
+.movepicture, .sprite, .minion {
+    position: absolute;
+    
+    height: 100%;
+    width: 100%;
+    
+    background: url("../../images/minions/minionSpriteSheet.png") no-repeat; 
+    background-size: 800% auto; 
+  }
+  
+  .movepicture.white, .sprite.white, .minion.white{background-position-y: 0;}
+  .movepicture.black, .sprite.black, .minion.black{background-position-y: 100%;}
+  
+  .knight{background-position-x: 0;}
+  .rook{background-position-x: 14%;}
+  .pawn{background-position-x: 28.25%;}
+  .king{background-position-x: 43%;}
+  .queen{background-position-x: 57%;}
+  .bishop{background-position-x: 71.5%;}
+
+.whiteking{
+    position: absolute;
+    
+    height: 100%;
+    width: 100%;
+    
+    background: url("../../images/minions/minionSpriteSheet.png") no-repeat; 
+    background-size: 800% auto;
+    background-position-y: 0;
+    background-position-x: 43%; 
+}
+
+.blackking{
+  position: absolute;
+  
+  height: 100%;
+  width: 100%;
+  
+  background: url("../images/minions/minionSpriteSheet.png") no-repeat; 
+  background-size: 800% auto;
+  background-position-y: 0;
+  background-position-x: 43%; 
+}
+  

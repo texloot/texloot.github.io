@@ -1,0 +1,25 @@
+:root {
+    /* used in gamegrid */
+    --black-grid-color: #48484c;
+    --white-grid-color: white;
+    --chessboard-padding-color: black;
+    --basic-beat-color: #9e4a4a;
+    --basic-move-color: rgb(157, 253, 194);
+    --en-passant-move-color: #ffb773;
+    --castling-move-color: #4a9dfb;
+    --promotion-move-color: rgb(155, 253, 193);
+    --promotion-move-shadow-color: rgba(157, 253, 194, 0.502);
+    --promotion-beat-color: #9e4a4a;
+    --promotion-beat-shadow-color: #9e4a4a80;
+    --change-color:   rgb(96, 123, 131);  /* rgb(78, 101, 108);*/
+    --minion-change-color: rgb(130, 176, 189);/* rgb(117, 150, 160);*/
+    --clock-active-color: rgb(24, 46, 109);
+
+    /* NOTE: the selection also hast a filter brightness effect */
+    --selection-color: #447a59;
+    /* clock-colors */
+    --divider-color: black;
+    --clock-color: black;
+    /* used in history / historymode */
+    --history-grey: lightgrey;
+}
